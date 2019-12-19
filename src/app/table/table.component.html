@@ -1,0 +1,49 @@
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <h2 class="title1">Tables</h2>
+            <div class="panel-body widget-shadow" data-example-id="hoverable-table">
+                <h4>Basic Table:</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                          <th>MedOps Id</th>
+                          <th>Action</th>
+                          <th>Status</th>
+                          <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cust of newData">
+                          <th scope="row">{{cust.medId}}</th>
+                          <td>{{cust.action}}</td>
+                          <td>{{cust.status}}</td>
+                          <td>{{cust.comment}}</td>
+                        </tr>
+                         
+                    </tbody>
+                </table>
+            </div>
+            <form (ngSubmit)="myFunction()">
+                <table class="table">
+
+                <tbody >
+                        <tr>
+                            <th scope="row">
+                            <input type="text" [(ngModel)]="medops" name="medops" placeholder="Med id"/></th>
+                            <td><input type="text" [(ngModel)]="action" name="action" placeholder="action"/></td>
+                            <td><input type="text" [(ngModel)]="status" name="status" placeholder="status"/></td>
+                            <td><input type="text" [(ngModel)]="comment" name="comment" placeholder="comment"/></td>
+                          </tr>
+                        </tbody>
+
+             
+            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+        </table>
+
+        </form>
+
+  
+        </div>
+    </div>
+</div>

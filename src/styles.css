@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import './css/SidebarNav.min.css';
+@import './css/animate.css';
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
+@import './css/custom.css';
+@import './css/export.css';
+@import './css/font-awesome.css';
+@import './css/graph.css';
+@import './css/jqcandlestick.css';
+
+@import './css/monthly.css';
+
+/* @import './css/owl.carousel.css'; */
+
+@import './css/style.css';
