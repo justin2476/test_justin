@@ -1,0 +1,37 @@
+API DOC
+
+1.create user
+
+POST
+
+localhost:4000/createUser
+
+body
+{
+"userId":"A3631A", 
+"firstName":"kiol",
+"lastName":"bill",
+"password":"1justin#",
+	"mobile":"9544517518"
+}
+
+2.get work related to user
+
+GET
+
+localhost:4000/getWork 
+
+Body
+{
+"userId": "A3330A"
+}
+
+3.Insert new word post
+
+POST
+localhost:4000/postWork
+{
+"medId":"MED-40125", 
+"action":"Scripted",
+"status":"Closed"
+}
