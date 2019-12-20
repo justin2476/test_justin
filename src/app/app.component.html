@@ -1,6 +1,12 @@
 
-
-<nav class="navbar navbar-dark bg-primary"> 
+<script> 
+    window.addEventListener('storage', (e) => {
+       alert(e.storageArea);
+       if (e.storageArea === sessionStorage && e.key === 'login') {
+       alert( 'changed' );
+     }
+   });</script>
+<nav class="navbar navbar-dark bg-primary" > 
     <span class="navbar-brand">Monitor App</span>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -8,9 +14,10 @@
   <a routerLink="signup" class="navbar-brand mb-0 h1 active" routerLinkActive="active">
     Signup
   </a>
- <a routerLink="table" class="navbar-brand mb-0 h1"  >
-    Table
+ <a routerLink="" class="navbar-brand mb-0 h1" (click)="onClickSignOut()" >
+    {{signInOut}}
   </a>
   </div></div>
 </nav>
 <router-outlet></router-outlet>
+

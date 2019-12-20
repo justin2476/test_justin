@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -10,7 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { LoginComponent } from './login/login.component';
 

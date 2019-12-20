@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../signup.service';
 import { Router } from '@angular/router';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 mobile: string;
 password: string;
-  constructor(private apiService: SignupService,   private router: Router) { }
+  constructor(private apiService: SignupService,   private router: Router, private app: AppComponent) { }
 
   ngOnInit() {
+
+    console.log('from login login falg' + sessionStorage.getItem('login'));
+    sessionStorage.setItem('login', 'false');
+
   }
 
   onsubmit() {
@@ -21,13 +26,16 @@ password: string;
     };
     this.apiService.login(obj).subscribe(data => {
 if (data === 'access granted') {
-this.router.navigate(['/table']);
+  sessionStorage.setItem('login', 'true');
+  this.router.navigate(['/table']);
+  this.app.onClick();
+
 } else {
   console.log(data);
 }
 
 });
-    alert(obj.mobile);
+    console.log('Entered Mobile Number is' + obj.mobile);
   }
 
 }
