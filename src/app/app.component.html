@@ -1,23 +1,15 @@
 
-<script> 
-    window.addEventListener('storage', (e) => {
-       alert(e.storageArea);
-       if (e.storageArea === sessionStorage && e.key === 'login') {
-       alert( 'changed' );
-     }
-   });</script>
-<nav class="navbar navbar-dark bg-primary" > 
-    <span class="navbar-brand">Monitor App</span>
+<nav class="navbar navbar-dark bg-primary" style="margin: 0" > 
+    <span class="navbar-brand h1">Monitor App</span>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-  <a routerLink="signup" class="navbar-brand mb-0 h1 active" routerLinkActive="active">
+        <div class="navbar-nav" style="float:right">
+  <!-- <a routerLink="signup" class="navbar-brand mb-0 h1 active" routerLinkActive="active">
     Signup
-  </a>
+  </a> -->
  <a routerLink="" class="navbar-brand mb-0 h1" (click)="onClickSignOut()" >
     {{signInOut}}
   </a>
   </div></div>
 </nav>
 <router-outlet></router-outlet>
-

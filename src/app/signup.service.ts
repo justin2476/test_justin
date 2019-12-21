@@ -13,6 +13,8 @@ export class SignupService {
   getWorkUrl = 'http://localhost:4000/getWork';
   postWorkUrl = 'http://localhost:4000/postWork';
   loginUrl = 'http://localhost:4000/login';
+  updateUrl='http://localhost:4000/putWork';
+  deleteUrl='http://localhost:4000/deleteWork';
   constructor(private http: HttpClient) { }
 
 
@@ -32,8 +34,22 @@ export class SignupService {
    }
 
   public postWork(user: any)  {
-    console.log('from postUser' + user.medops);
+    console.log('from postUser' + user.medId);
     return this.http.post(this.postWorkUrl, user, { responseType: 'text'}).pipe(
+       tap(( user: any) => console.log(`added hero w/ id=${user}`)),
+       catchError(this.handleError<any>('postUser'))
+     );
+   }
+   public putWork(user: any)  {
+    console.log('from putWork' + user.medId);
+    return this.http.put(this.updateUrl, user).pipe(
+       tap(( user: any) => console.log(`added hero w/ id=${user}`)),
+       catchError(this.handleError<any>('postUser'))
+     );
+   }
+   public deleteWork(user: any)  {
+    console.log('from putWork' + user._id);
+    return this.http.put(this.deleteUrl, user).pipe(
        tap(( user: any) => console.log(`added hero w/ id=${user}`)),
        catchError(this.handleError<any>('postUser'))
      );

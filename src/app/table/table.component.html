@@ -1,25 +1,34 @@
 <div id="page-wrapper">
     <div class="main-page">
         <div class="tables">
-            <h2 class="title1">Tables</h2>
+            <h2 class="title1">Work Summary</h2>
             <div class="panel-body widget-shadow" data-example-id="hoverable-table">
-                <h4>Basic Table:</h4>
+                <h4 *ngIf="newData">Total Addressed Count : {{newData.length}}</h4>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                           <th>MedOps Id</th>
                           <th>Action</th>
                           <th>Status</th>
-                          <th>Comment</th>
+                          <th>Comment</th>               
+                          <th>Change</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr *ngFor="let cust of newData">
-                          <th scope="row">{{cust.medId}}</th>
+                    <tbody  *ngFor="let cust of newData"> 
+                        <tr >
+                          <td scope="row">{{cust.medId}}</td>
                           <td>{{cust.action}}</td>
                           <td>{{cust.status}}</td>
                           <td>{{cust.comment}}</td>
+                          <td> <span class="glyphicon glyphicon-edit"  (click)='edit(cust)'></span>&nbsp; <span class="glyphicon glyphicon-trash" (click)='delete(cust)'></span> </td>
                         </tr>
+                        <tr *ngIf='editable===true && editId===cust._id'>
+                                <td scope="row"><input type="text" [(ngModel)]="medopsE" name="medops" placeholder="Med id" /></td>
+                                <td><input type="text" [(ngModel)]="actionE" name="action" placeholder="action"/></td>
+                                <td><input type="text" [(ngModel)]="statusE" name="status" placeholder="status"/></td>
+                                <td><input type="text" [(ngModel)]="commentE" name="comment" placeholder="comment"/></td>
+                                <td><button class="btn btn-info" (click)='editSubmit()' >submit</button></td>  
+                            </tr>
                          
                     </tbody>
                 </table>
@@ -47,3 +56,5 @@
         </div>
     </div>
 </div>
+
+ 
