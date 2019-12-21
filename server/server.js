@@ -10,7 +10,7 @@ var connection = require('./config/connection');
 var postWork = require('./modules/postWork');
 var getWork = require('./modules/getWork');
 var putWork = require('./modules/putWork');
-
+var deleteWork=require('./modules/deleteWork')
 var createUser=require('./modules/createUser');
 
 var app = express()
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   next();
 });
 app.get('/getWork', async (req, res) => {
@@ -35,7 +36,7 @@ app.post('/postWork', async (req, res) => {
 })
 app.put('/putWork', async (req, res) => {
   var ObjQuerry = req.body;
-
+console.log('Api called '+ObjQuerry)
   var result = await putWork.putWork(ObjQuerry);
   res.send(result);
 })
@@ -53,6 +54,12 @@ app.post('/login', async (req, res) => {
   res.send(result);
 })
 
+app.put('/deleteWork', async (req, res) => {
+  var ObjQuerry = req.body;
+console.log('Api called '+ObjQuerry)
+  var result = await deleteWork.deleteWork(ObjQuerry);
+  res.send(result);
+})
 
 // app.post('/register', function (req, res) {
 //   //pass date as string use JSON.stringify(date);

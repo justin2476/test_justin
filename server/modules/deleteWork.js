@@ -1,15 +1,21 @@
+
+
+
 var WorkPage = require('../model/workPage');
 var responseData=require('../model/error');
 var mongoose = require('mongoose');
-var putWork = function (data) {
+var deleteWork = function (data) {
   console.log('in put api '+data)
      //responseData.responseData="Issue";
 
-    var conditions = { "_id":data._id}
-    , update = { $set: {"medId":data.newMed,"action":data.action,"status":data.status, "comment": data.comment }}
-    , options = { multi: true };
+    // var conditions = { "_id":data.medId}
+    // , update = { $set: {"medId":data.newMed,"action":data.action,"status":data.status, "comment": data.comment }}
+    // , options = { multi: true };
   
-    WorkPage.updateMany(conditions, update, options, callback);
+    // WorkPage.updateMany(conditions, update, options, callback);
+
+    WorkPage.deleteOne({"medId":data.medId}, callback);
+
   
   function callback (err, numAffected) {
     // numAffected is the number of updated documents
@@ -36,4 +42,4 @@ var putWork = function (data) {
 
 }
 
-module.exports = { 'putWork': putWork }
+module.exports = { 'deleteWork': deleteWork }
