@@ -11,6 +11,7 @@ import {AppComponent} from '../app.component';
 export class LoginComponent implements OnInit {
 mobile: string;
 password: string;
+login=true;
   constructor(private apiService: SignupService,   private router: Router, private app: AppComponent) { }
 
   ngOnInit() {
@@ -27,11 +28,17 @@ password: string;
     this.apiService.login(obj).subscribe(data => {
 if (data === 'access granted') {
   sessionStorage.setItem('login', 'true');
+  sessionStorage.setItem('mobile', this.mobile);
+
   this.router.navigate(['/table']);
   this.app.onClick();
 
 } else {
   console.log(data);
+  sessionStorage.setItem('login', 'false');
+  alert("Wrong credentials")
+  this.login=false;
+
 }
 
 });

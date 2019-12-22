@@ -9,7 +9,7 @@ const work = new schema({
     action: String,
     status: String,
     comment: String,
-    userId: String,
+    mobile: String,
     createdDate: Date,
     updatedDate: Date,
     point:[{

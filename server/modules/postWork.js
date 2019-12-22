@@ -5,7 +5,7 @@ var postWork = function (data) {
     var responseData = "work posted";
     if (data) {
 
-        if (data.medId && data.action && data.status) {
+        if (data.medId && data.action && data.status&&data.mobile) {
             var obj = {};
             obj._id = mongoose.Types.ObjectId();
 
@@ -13,7 +13,7 @@ var postWork = function (data) {
             obj.action = data.action;
             obj.status = data.status;
             obj.comment =data.comment;
-            obj.userId = 'A3330A'
+            obj.mobile = data.mobile;
             obj.createdDate = new Date();
             obj.updatedDate = new Date();
 

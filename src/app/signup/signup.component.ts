@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { SignupService} from '../signup.service';
 import {IUser} from '../core/interface';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +15,11 @@ export class SignupComponent implements OnInit {
   private lastName = '';
   private adminId = '';
   private password = '';
-  private mobile: number;
+  private mobile: '';
   private repeat = '';
   public obj: IUser;
 
-  constructor(private signupService: SignupService,   private router: Router) { }
+  constructor(private apiService: SignupService,   private router: Router, private app:AppComponent) { }
 
   ngOnInit() {
   }
@@ -27,7 +28,7 @@ onsubmit() {
     console.log(this.firstName + ',' + this.lastName + ',' + this.adminId + ',' + this.mobile + ',' + this.repeat + ',' + this.password);
     const obj = {firstName: '',
   lastName: '',
-  mobile: 0,
+  mobile: '',
   password: '',
   userId: ''
 };
@@ -39,8 +40,8 @@ onsubmit() {
    obj.userId = this.adminId;
    console.log( 'obj found' + obj );
 
-   this.signupService.postUser(obj).subscribe( data =>
-    data == 'work posted' ? this.router.navigate(['/table']) : console.log(data));
+   this.apiService.postUser(obj).subscribe( data =>
+    data == 'work posted' ? (  sessionStorage.setItem('login', 'true'),  sessionStorage.setItem('mobile', this.mobile),    this.router.navigate(['/table']),  this.app.onClick()): console.log(data));
 
 
 

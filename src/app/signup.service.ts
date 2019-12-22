@@ -54,8 +54,8 @@ export class SignupService {
        catchError(this.handleError<any>('postUser'))
      );
    }
-  public getWork( )  {
-     return this.http.get(this.getWorkUrl);
+  public getWork(mobile:string )  {
+     return this.http.get(this.getWorkUrl+'?mobile='+mobile);
    }
 
 

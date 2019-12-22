@@ -3,5 +3,5 @@ export interface IUser {
         firstName:string;
         lastName:string;
         password:string;
-        mobile:number;        
+        mobile:string;        
 }

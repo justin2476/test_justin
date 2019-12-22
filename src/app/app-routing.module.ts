@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {SignupComponent} from './signup/signup.component';
 import {TableComponent} from './table/table.component';
 import {LoginComponent} from './login/login.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import { from } from 'rxjs';
 
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'table',
     component: TableComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 

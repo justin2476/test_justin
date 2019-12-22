@@ -23,6 +23,7 @@ export class TableComponent implements OnInit {
   private loginFlag: string;
   private editable = false;
   private editId='';
+  private mobile=';'
   constructor(private apiService: SignupService, private router: Router) { }
 
   ngOnInit() {
@@ -30,24 +31,27 @@ export class TableComponent implements OnInit {
     if (this.loginFlag === 'false') {
       alert( 'Please login' );
       this.router.navigate(['/']);
+    }else{
+       this.mobile = sessionStorage.getItem('mobile')
     }
-    this.apiService.getWork().subscribe(data => this.newData = data );
+    this.apiService.getWork(this.mobile).subscribe(data => this.newData = data );
   }
   myFunction() {
 
     const obj = {medId: this.medops,
     action: this.action,
     status: this.status,
-    comment: this.comment
+    comment: this.comment,
+    mobile:this.mobile
   };
     if (obj) {
-    // this.apiService.postWork(obj).subscribe(() => this.apiService.getWork().subscribe(data => this.newData = data) );
+    // this.apiService.postWork(obj).subscribe(() => this.apiService.getWork(this.mobile).subscribe(data => this.newData = data) );
    this.postView = this.apiService.postWork(obj);
 
    this.postView.subscribe((data: any) => {
      if (data === 'work posted') {
        alert('successfully inserted');
-       this.apiService.getWork().subscribe( data => this.newData = data );
+       this.apiService.getWork(this.mobile).subscribe( data => this.newData = data );
       }
 
   });
@@ -81,7 +85,7 @@ export class TableComponent implements OnInit {
 
       if (data.status === true) {
         // alert('successfully inserted');
-        this.apiService.getWork().subscribe( data => this.newData = data );
+        this.apiService.getWork(this.mobile).subscribe( data => this.newData = data );
         }
       }
 
@@ -112,7 +116,7 @@ export class TableComponent implements OnInit {
 
         if (data.status === true) {
           // alert('successfully inserted');
-          this.apiService.getWork().subscribe( data => this.newData = data );
+          this.apiService.getWork(this.mobile).subscribe( data => this.newData = data );
           }
         }
 

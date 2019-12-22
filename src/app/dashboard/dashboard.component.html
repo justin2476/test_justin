@@ -1,0 +1,6 @@
+<div style="float:right">
+<button class="btn btn-info" (click)='onClick()'>select date</button> 
+<hr>
+<app-date-picker *ngIf="display==true"></app-date-picker>
+<button class="btn btn-info" *ngIf="display==true" (click)='onClick()'>Done</button> 
+</div>

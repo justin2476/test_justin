@@ -22,7 +22,8 @@ app.use(function (req, res, next) {
   next();
 });
 app.get('/getWork', async (req, res) => {
-  var ObjQuerry = req.body;
+  console.log(req.query)
+  var ObjQuerry = req.query;
   console.log(ObjQuerry)
   var result = await getWork.getWork(ObjQuerry);
   res.send(result);

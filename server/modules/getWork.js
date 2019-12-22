@@ -10,7 +10,18 @@ async function getWork(apiData) {
         } if (apiData.type) {
             query.type = apiData.type;
         }
-        //console.log(query)
+        if (apiData.mobile) {
+            query.mobile = apiData.mobile;
+        }
+
+
+
+        var start = new Date();
+        start.setHours(0, 0, 0, 0);
+        // var end = new Date();
+        query.createdDate = { $gt:start };
+        // obj.endTime = { $lt: new Date(end) };
+        console.log(query)
 
         var pageNo = parseInt(apiData.pageNo)
         if (apiData.size)

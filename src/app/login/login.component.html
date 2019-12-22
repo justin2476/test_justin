@@ -6,6 +6,7 @@
                     <form (ngSubmit)="onsubmit()">
                         <input type="email" class="user" name="email" placeholder="Mobile Number" required="" [(ngModel)]="mobile">
                         <input type="password" name="password" class="lock" placeholder="Password" required="" [(ngModel)]="password">
+                        <div *ngIf="login==false" class="alert alert-danger" role="alert">worng mobile number or password</div>
                         <div class="forgot-grid">
                             <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
                             <div class="forgot">

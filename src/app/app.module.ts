@@ -15,6 +15,8 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     SignupComponent,
     TableComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
